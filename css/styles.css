@@ -9,6 +9,7 @@
   --address-color: rgba(255, 255, 255, 0.6);
   --outline: 2px solid tomato;
   --logo-black-color: #000000;
+  --hover-hero-btn-color: #188ce8;
   --s: #eeeeee;
 
   --ss: #ececec;
@@ -17,6 +18,11 @@
 /* ЗАГАЛЬНІ ПРАВИЛА */
 html {
   box-sizing: border-box;
+}
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
 }
 
 a {
@@ -70,7 +76,26 @@ h2 {
   overflow: hidden;
 }
 
+.section {
+  width: 1200px;
+  padding-left: 15px;
+  padding-right: 15px;
+
+  outline: var(--outline);
+
+  margin-left: auto;
+  margin-right: auto;
+}
+.container {
+  display: flex;
+  margin-left: auto;
+}
+.outline {
+  outline: var(--outline);
+}
+
 /* HEADER */
+
 .logo {
   font-family: Raleway, sans-serif;
   font-weight: 700;
@@ -85,6 +110,9 @@ h2 {
 }
 
 .nav-list-item {
+  margin-top: 32px;
+  margin-bottom: 32px;
+
   font-weight: 500;
   font-size: 14px;
   line-height: 1.14;
@@ -92,7 +120,18 @@ h2 {
 
   color: var(--title-black-color);
 }
+.nav-list-item a {
+  padding-top: 32px;
+  padding-bottom: 32px;
+}
+.nav-list-item:not(:first-child) {
+  margin-left: 50px;
+}
 
+.contact-menu,
+.nav-list {
+  display: flex;
+}
 .contact-menu a {
   color: var(--text-color);
 }
@@ -107,50 +146,79 @@ h2 {
 .current {
   color: var(--blue-color);
 }
-
+.nav-menu {
+  display: flex;
+  margin-left: 93px;
+  margin-right: auto;
+}
+.mail {
+  margin-right: 50px;
+}
+.header-container {
+  align-items: center;
+}
+/* ====================================HERO======================================= */
 .hero-title {
+  margin: 0;
+
   font-weight: 900;
   font-size: 44px;
   line-height: 1.36;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  margin: 0;
+  text-align: center;
 
   color: var(--white-color);
 }
 .hero {
   background-color: var(--footer-color);
+  padding-bottom: 200px;
+  padding-top: 200px;
 }
 .hero-btn {
+  min-width: 216px;
+  height: 50px;
+
   font-weight: 700;
   font-size: 16px;
   line-height: 1.875;
   letter-spacing: 0.06em;
 
-  min-width: 216px;
-  height: 50px;
-
   color: var(--white-color);
   background-color: var(--blue-color);
   margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.hero-btn:hover,
+.hero-btn:focus {
+  color: var(--white-color);
+  background-color: var(--hover-hero-btn-color);
 }
 .btn {
-  display: inline;
+  display: block;
   border-radius: 4px;
   border: none;
   cursor: pointer;
 }
 
-/* FEATURES */
-
-.features-list-item.title {
+/* ====================================FEATURES=============================*/
+.features-list-item {
+  display: block;
+  width: calc((100% - 30 * 3) / 4);
+  align-items: flex-start;
+}
+.features-list-item:not(:last-child) {
+  margin-right: 30px;
+}
+.features-list-item .title {
   text-transform: uppercase;
   font-size: 14px;
   line-height: 1.17;
 
   margin-bottom: 10px;
 }
-.features-list-item.text {
+.features-list-item .text {
   font-size: 14px;
   line-height: 24px;
   /* or 171% */
@@ -163,11 +231,29 @@ section {
   padding: 94px 0;
 }
 
-/* OUR-WORKS */
-
-/* TEAM */
+/* =================================OUR-WORKS=============================== */
+.our-works.title {
+  text-align: center;
+}
+.our-works-list {
+  display: flex;
+}
+.list-item:not(:last-child) {
+  margin-right: 30px;
+}
+/* ====================================TEAM======================================= */
 section.team {
   background-color: var(--background-gray);
+}
+.team.title {
+  text-align: center;
+}
+.team-list {
+  display: flex;
+}
+
+.team-list-item:not(:last-child) {
+  margin-right: 30px;
 }
 .card-title {
   font-weight: 500;
@@ -183,7 +269,7 @@ section.team {
   margin: 0;
 }
 
-/* FOOTER */
+/* ========================================FOOTER================================== */
 footer {
   background-color: var(--footer-color);
   padding: 60px 0;
@@ -192,8 +278,12 @@ address a {
   font-style: normal;
   color: var(--address-color);
 }
+.address-list-item:not(:last-child) {
+  margin-bottom: 9px;
+}
 .map-link {
   color: #ffffff;
+  line-height: 1.71;
 }
 footer .logo {
   display: inline-block;
@@ -203,7 +293,7 @@ footer .logo {
   color: var(--white-color);
 }
 
-/* PORTFOLIO */
+/* ==================================PORTFOLIO===================================== */
 .filter-btn {
   font-weight: 500;
   font-size: 16px;
