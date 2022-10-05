@@ -3,11 +3,11 @@
   --text-color: #757575;
   --blue-color: #2196f3;
   --white-color: #ffffff;
-  --background-white: #f5f5f5;
+  --background-white: #ffffff;
   --background-gray: #f5f4fa;
   --footer-color: #2f303a;
   --address-color: rgba(255, 255, 255, 0.6);
-  --outline: 2px solid tomato;
+  --outline: 0px solid tomato;
   --logo-black-color: #000000;
   --hover-hero-btn-color: #188ce8;
   --s: #eeeeee;
@@ -27,6 +27,7 @@ html {
 
 a {
   text-decoration: none;
+  color: var(--title-black-color);
 }
 
 ul {
@@ -41,11 +42,16 @@ body {
   letter-spacing: 0.03em;
 
   color: var(--text-color);
+  background-color: var(--background-white);
 }
 button {
+  display: block;
   font-family: roboto, sans-serif;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
 }
-
+h1,
 h2,
 h3,
 h4,
@@ -61,8 +67,10 @@ h2 {
   line-height: 1.17;
   margin-bottom: 50px;
 }
-li img {
+img {
   display: block;
+  max-width: 100%;
+  height: auto;
 }
 
 .visually-hidden {
@@ -79,25 +87,24 @@ li img {
   overflow: hidden;
 }
 
-.section {
+.container {
+  /* ------------------- */
   width: 1200px;
   padding-left: 15px;
   padding-right: 15px;
-
-  outline: var(--outline);
-
   margin-left: auto;
   margin-right: auto;
-}
-.container {
-  display: flex;
+
+  outline: var(--outline);
 }
 .outline {
   outline: var(--outline);
 }
 
 /* HEADER */
-
+header {
+  border-bottom: 1px solid #ececec;
+}
 .logo {
   font-family: Raleway, sans-serif;
   font-weight: 700;
@@ -111,20 +118,16 @@ li img {
   color: var(--logo-black-color);
 }
 
+.nav-list-item a {
+  display: block;
+  padding-top: 32px;
+  padding-bottom: 32px;
+}
 .nav-list-item {
-  margin-top: 32px;
-  margin-bottom: 32px;
-
   font-weight: 500;
   font-size: 14px;
   line-height: 1.14;
   letter-spacing: 0.02em;
-
-  color: var(--title-black-color);
-}
-.nav-list-item a {
-  padding-top: 32px;
-  padding-bottom: 32px;
 }
 .nav-list-item:not(:first-child) {
   margin-left: 50px;
@@ -136,6 +139,14 @@ li img {
 }
 .contact-menu a {
   color: var(--text-color);
+}
+.contact-menu {
+  margin-left: auto;
+
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.02em;
 }
 .nav-menu a:hover,
 .nav-menu a:focus,
@@ -151,17 +162,22 @@ li img {
 .nav-menu {
   display: flex;
   margin-left: 93px;
-  margin-right: auto;
 }
-.mail {
+.contact-menu-item:not(:last-child) {
   margin-right: 50px;
 }
+.mail {
+  margin-left: auto;
+}
 .header-container {
+  display: flex;
   align-items: center;
 }
 /** ====================================HERO=================================== */
 .hero-title {
-  margin: 0;
+  width: 696px;
+  margin-left: auto;
+  margin-right: auto;
 
   font-weight: 900;
   font-size: 44px;
@@ -179,8 +195,7 @@ li img {
 }
 .hero-btn {
   min-width: 216px;
-  height: 50px;
-
+  padding: 10px 32px;
   font-weight: 700;
   font-size: 16px;
   line-height: 1.875;
@@ -205,6 +220,9 @@ li img {
 }
 
 /** ====================================FEATURES=============================*/
+.features-list {
+  display: flex;
+}
 .features-list-item {
   display: block;
   width: calc((100% - 30 * 3) / 4);
@@ -229,16 +247,20 @@ li img {
 
   color: var(--text-color);
 }
-section {
+.section {
   padding: 94px 0;
 }
 
 /** =================================OUR-WORKS=============================== */
+.our-works {
+  padding-top: 0;
+}
 .our-works.title {
   text-align: center;
 }
 .our-works-list {
   display: flex;
+  justify-content: center;
 }
 .list-item:not(:last-child) {
   margin-right: 30px;
@@ -252,6 +274,14 @@ section.team {
 }
 .team-list {
   display: flex;
+}
+.team-list-item {
+  background: var(--background-white);
+  /* material shadow v1 */
+
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 0px 0px 4px 4px;
 }
 
 .team-list-item:not(:last-child) {
@@ -274,7 +304,6 @@ section.team {
   padding-top: 30px;
   padding-bottom: 30px;
   text-align: center;
-  background-color: var(--white-color);
 }
 
 /** ========================================FOOTER================================== */
@@ -291,6 +320,8 @@ address a {
 }
 .map-link {
   color: #ffffff;
+}
+.address-list-item {
   line-height: 1.71;
 }
 footer .logo {
@@ -315,14 +346,14 @@ footer .logo {
   height: 38px;
 
   padding: 6px 22px;
-  margin-bottom: 50px;
 
   color: var(--title-black-color);
   background: var(--background-gray);
 }
 .filter-list {
-  margin-left: auto;
-  margin-right: auto;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
 }
 .filter-list-item:not(:last-child) {
   margin-right: 8px;
@@ -348,6 +379,7 @@ footer .logo {
   color: var(--text-color);
 }
 .works-list {
+  display: flex;
   flex-wrap: wrap;
 }
 .works-list-item:not(:nth-child(3n + 3)) {
@@ -362,5 +394,7 @@ footer .logo {
   color: var(--white-color);
 }
 .title-container {
-  margin: 20px 24px;
+  padding: 20px 24px;
+  background: #ffffff;
+  border: 1px solid #eeeeee;
 }
